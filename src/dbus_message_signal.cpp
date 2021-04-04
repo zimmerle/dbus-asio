@@ -73,10 +73,12 @@ DBus::Message::Signal::marshall(const std::string& destination) const
 
     // This is necessary, to prevent errors from the daemon,although it is marked
     // as optional in the spec
+    /* fixme: felipe - dirty hack to make signals workable.
     DBus::Type::Struct sDestination;
     sDestination.add(DBus::Type::Byte(DBus::Message::Header::HEADER_DESTINATION));
     sDestination.add(DBus::Type::Variant(DBus::Type::String(destination)));
     array.add(sDestination);
+    */
 
     DBus::Type::Struct sInterface;
     sInterface.add(DBus::Type::Byte(DBus::Message::Header::HEADER_INTERFACE));
